@@ -1,4 +1,4 @@
-# Simple key-value console app
+# Simple key-value console app [![Build Status](https://travis-ci.com/haskone/dummy_kvs_node.svg?branch=master)](https://travis-ci.com/haskone/dummy_kvs_node)
 
 ## Usage
 
