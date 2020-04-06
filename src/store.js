@@ -1,6 +1,7 @@
 var fs = require('fs');
 var readline = require('readline');
 
+var utils = require('./utils.js');
 var constants = require('./constants.js');
 
 class Store {
@@ -31,7 +32,7 @@ class Store {
                 newContentBuffer.toString('utf-8'),
                 (err) => {
                     if (err) {
-                        console.log(err);
+                        utils.output(err);
                     }
                 }
             );
@@ -42,7 +43,7 @@ class Store {
         const dbValue = `${key}${constants.KEY_VALUE_SEP}${value}${constants.LINE_SEP}`;
         fs.appendFile(this.filename, dbValue, (err) => {
             if (err) {
-                console.log(err);
+                utils.output(err);
             }
             callback(key, value);
         });
@@ -52,7 +53,7 @@ class Store {
         const fileStream = fs.createReadStream(this.filename);
         const rl = readline.createInterface({
           input: fileStream,
-          crlfDelay: Infinity // to recognize all instances of CR LF
+          crlfDelay: Infinity
         });
 
         rl.on('line', (line) => {

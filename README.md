@@ -15,6 +15,17 @@ Use one of the following way:
     - kvs get {KEY}
 ```
 
+## Brief description of structure
+
+- `kvs.js`: just getting params and pass it to others
+- `config.js`: so far only DB filename, but should contain all configuration params
+
+- `src/`
+    - `constants.js`: all constants
+    - `utils.js`: common helpers
+    - `operations.js`: has a wrapper over Store instance to handle input/callbacks
+    - `stores.js`: main logic to work with "DB" is here
+
 ## Run tests
 
 `npm test`
