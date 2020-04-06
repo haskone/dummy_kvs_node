@@ -29,7 +29,7 @@ class Store {
         }).on('close', () => {
             fs.writeFile(
                 this.filename,
-                newContentBuffer.join(constants.LINE_SEP),
+                `${newContentBuffer.join(constants.LINE_SEP)}${constants.LINE_SEP}`,
                 (err) => {
                     if (err) {
                         utils.output(err);

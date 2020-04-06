@@ -15,6 +15,12 @@ Use one of the following way:
     - kvs get {KEY}
 ```
 
+## How it works
+
+- `Add` more values with same `key` does not replace existing `values` but append
+- `Remove` all values with specified `key`
+- `Get` all values with specified `key`
+
 ## Brief description of structure
 
 - `kvs.js`: just getting params and pass it to others
