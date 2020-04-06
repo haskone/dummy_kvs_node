@@ -16,20 +16,20 @@ class Store {
           crlfDelay: Infinity
         });
       
-        const fileSizeInBytes = fs.statSync(this.filename).size;
-        var newContentBuffer = Buffer.alloc(fileSizeInBytes);
-
+        // Let's keep it very simple and not use
+        // buffers but just an array
+        let newContentBuffer = [];
         rl.on('line', (line) => {
             let [dbKey, dbValue] = line.split(constants.KEY_VALUE_SEP);
             if (key === dbKey) {
                 callback(key, dbValue);
             } else {
-                newContentBuffer.write(`${line}${constants.LINE_SEP}`, 'utf-8')
+                newContentBuffer.push(line);
             }
         }).on('close', () => {
             fs.writeFile(
                 this.filename,
-                newContentBuffer.toString('utf-8'),
+                newContentBuffer.join(constants.LINE_SEP),
                 (err) => {
                     if (err) {
                         utils.output(err);
@@ -41,7 +41,7 @@ class Store {
 
     add(key, value, callback) {
         const dbValue = `${key}${constants.KEY_VALUE_SEP}${value}${constants.LINE_SEP}`;
-        fs.appendFile(this.filename, dbValue, (err) => {
+        fs.appendFile(this.filename, dbValue, 'utf8', (err) => {
             if (err) {
                 utils.output(err);
             }
