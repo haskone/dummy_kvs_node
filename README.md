@@ -1,4 +1,4 @@
-# Simple key-value console app [![Build Status](https://travis-ci.com/haskone/dummy_kvs_node.svg?branch=master)](https://travis-ci.com/haskone/dummy_kvs_node) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/haskone/dummy_kvs_node)
+# Simple key-value console app [![Build Status](https://travis-ci.com/haskone/dummy_kvs_node.svg?branch=master)](https://travis-ci.com/haskone/dummy_kvs_node) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/haskone/dummy_kvs_node)](https://github.com/haskone/dummy_kvs_node/releases/tag/v0.0.1)
 
 ## Usage
 
